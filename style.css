@@ -14,7 +14,7 @@ body {
 }
 
 main {
-    background: url("https://s2.ax1x.com/2020/02/10/14IbLQ.png") no-repeat fixed;
+    background: url("imgs/bgi.png") no-repeat fixed;
     display: flex;
     align-items: center;
     justify-content: center;
