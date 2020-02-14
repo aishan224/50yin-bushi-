@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>五十音图</title>
+  </head>
+  <body>
+    <!-- 粉笔图案模式（pattern）定义, 来自： -->
+    <!-- https://codepen.io/shshaw/pen/jmMpmd -->
+    <svg style="display: none">
+      <filter id="chalk">
+        <feTurbulence
+          result="T"
+          numOctaves="3"
+          seed="0"
+          type="fractalNoise"
+          baseFrequency=".4"
+        />
+        <feOffset dy="-2" dx="-2" />
+        <feDisplacementMap
+          in2="T"
+          scale="5"
+          xChannelSelector="R"
+          yChannelSelector="G"
+          in="SourceGraphic"
+        />
+      </filter>
+    </svg>
+    <!-- 粉笔图案模式（pattern）定义结束 -->
+    <audio id = "playera" src="./audios/a.mp3"></audio>
+    <audio id = "playeri" src="./audios/i.mp3"></audio>
+    <audio id = "playeru" src="./audios/u.mp3"></audio>
+    <audio id = "playere" src="./audios/e.mp3"></audio>
+    <audio id = "playero" src="./audios/o.mp3"></audio>
+    
+    <audio id = "playerka" src="./audios/ka.mp3"></audio>
+    <audio id = "playerki" src="./audios/ki.mp3"></audio>
+    <audio id = "playerku" src="./audios/ku.mp3"></audio>
+    <audio id = "playerke" src="./audios/ke.mp3"></audio>
+    <audio id = "playerko" src="./audios/ko.mp3"></audio>
+
+    <audio id = "playersa" src="./audios/sa.mp3"></audio>
+    <audio id = "playershi" src="./audios/shi.mp3"></audio>
+    <audio id = "playersu" src="./audios/su.mp3"></audio>
+    <audio id = "playerse" src="./audios/se.mp3"></audio>
+    <audio id = "playerso" src="./audios/so.mp3"></audio>
+    
+    <audio id = "playerta" src="./audios/ta.mp3"></audio>
+    <audio id = "playerchi" src="./audios/chi.mp3"></audio>
+    <audio id = "playertsu" src="./audios/tsu.mp3"></audio>
+    <audio id = "playerte" src="./audios/te.mp3"></audio>
+    <audio id = "playerto" src="./audios/to.mp3"></audio>
+    
+    <audio id = "playerna" src="./audios/na.mp3"></audio>
+    <audio id = "playerni" src="./audios/ni.mp3"></audio>
+    <audio id = "playernu" src="./audios/nu.mp3"></audio>
+    <audio id = "playerne" src="./audios/ne.mp3"></audio>
+    <audio id = "playerno" src="./audios/no.mp3"></audio>
+
+    <audio id = "playerha" src="./audios/ha.mp3"></audio>
+    <audio id = "playerhi" src="./audios/hi.mp3"></audio>
+    <audio id = "playerfu" src="./audios/fu.mp3"></audio>
+    <audio id = "playerhe" src="./audios/he.mp3"></audio>
+    <audio id = "playerho" src="./audios/ho.mp3"></audio>
+
+    <audio id = "playerma" src="./audios/ma.mp3"></audio>
+    <audio id = "playermi" src="./audios/mi.mp3"></audio>
+    <audio id = "playermu" src="./audios/mu.mp3"></audio>
+    <audio id = "playerme" src="./audios/me.mp3"></audio>
+    <audio id = "playermo" src="./audios/mo.mp3"></audio>
+
+    <audio id = "playerya" src="./audios/ya.mp3"></audio>
+    <audio id = "playeryu" src="./audios/yu.mp3"></audio>
+    <audio id = "playeryo" src="./audios/yo.mp3"></audio>
+
+    <audio id = "playerra" src="./audios/ra.mp3"></audio>
+    <audio id = "playerri" src="./audios/ri.mp3"></audio>
+    <audio id = "playerru" src="./audios/ru.mp3"></audio>
+    <audio id = "playerre" src="./audios/re.mp3"></audio>
+    <audio id = "playerro" src="./audios/ro.mp3"></audio>
+
+    <audio id = "playerwa" src="./audios/wa.mp3"></audio>
+    <audio id = "playerw_o" src="./audios/w_o.mp3"></audio>
+
+    <audio id = "playern" src="./audios/n.mp3"></audio>
+
+    <main>
+      <!-- 五十音图容器 -->
+      <div class="jp-grid">
+        <!-- 行元素 -->
+        <!-- a行 -->
+        <div class="row">
+          <!-- 发音单元格 -->
+          <div class="pro-card-wrapper">
+            <!-- 控制前、后翻转 -->
+            <div class="pro-card">
+              <!-- 平假名 -->
+              <!-- <a href="./audios/a.mp3" > -->
+              
+              <div class="hiragana tou" id="a">
+                <div class="character ping">あ</div>
+                <div class="character pian">ア</div>
+                <div class="romaji a">a</div>
+              </div>
+              <!-- </a> -->
+              
+              <!-- 片假名 -->
+              <!-- <div class="katakana" id="A">
+                <div class="character">ア</div>
+                <div class="romaji">a</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="i">
+                <div class="character ping">い</div>
+                <div class="character pian">イ</div>
+                <div class="romaji">i</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">イ</div>
+                <div class="romaji">i</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="u">
+                <div class="character ping">う</div>
+                <div class="character pian">ウ</div>
+                <div class="romaji">u</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ウ</div>
+                <div class="romaji">u</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="e">
+                <div class="character ping">え</div>
+                <div class="character pian">エ</div>
+                <div class="romaji">e</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">エ</div>
+                <div class="romaji">e</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="o">
+                <div class="character ping">お</div>
+                <div class="character pian">オ</div>
+                <div class="romaji">o</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">オ</div>
+                <div class="romaji">o</div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ka行-->
+        <div class="row">
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="ka">
+                <div class="character ping">か</div>
+                <div class="character pian">カ</div>
+                <div class="romaji">ka</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">カ</div>
+                <div class="romaji">ka</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="ki">
+                <div class="character ping">き</div>
+                <div class="character pian">キ</div>
+                <div class="romaji">ki</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">キ</div>
+                <div class="romaji">ki</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="ku">
+                <div class="character ping">く</div>
+                <div class="character pian">ク</div>
+                <div class="romaji">ku</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ク</div>
+                <div class="romaji">ku</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="ke">
+                <div class="character ping">け</div>
+                <div class="character pian">ケ</div>
+                <div class="romaji">ke</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ケ</div>
+                <div class="romaji">ke</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="ko">
+                <div class="character ping">こ</div>
+                <div class="character pian">コ</div>
+                <div class="romaji">ko</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">コ</div>
+                <div class="romaji">ko</div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- sa行-->
+        <div class="row">
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="sa">
+                <div class="character ping">さ</div>
+                <div class="character pian">サ</div>
+                <div class="romaji">sa</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">サ</div>
+                <div class="romaji">sa</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="shi">
+                <div class="character ping">し</div>
+                <div class="character pian">シ</div>
+                <div class="romaji">shi</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">シ</div>
+                <div class="romaji">shi</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="su">
+                <div class="character ping">す</div>
+                <div class="character pian">ス</div>
+                <div class="romaji">su</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ス</div>
+                <div class="romaji">su</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="se">
+                <div class="character ping">せ</div>
+                <div class="character pian">セ</div>
+                <div class="romaji">se</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">セ</div>
+                <div class="romaji">se</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="so">
+                <div class="character ping">そ</div>
+                <div class="character pian">ソ</div>
+                <div class="romaji">so</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ソ</div>
+                <div class="romaji">so</div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ta行-->
+        <div class="row">
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="ta">
+                <div class="character ping">た</div>
+                <div class="character pian">タ</div>
+                <div class="romaji">ta</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">タ</div>
+                <div class="romaji">ta</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="chi">
+                <div class="character ping">ち</div>
+                <div class="character pian">チ</div>
+                <div class="romaji">chi</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">チ</div>
+                <div class="romaji">chi</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="tsu">
+                <div class="character ping">つ</div>
+                <div class="character pian">ツ</div>
+                <div class="romaji">tsu</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ツ</div>
+                <div class="romaji">tsu</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="te">
+                <div class="character ping">て</div>
+                <div class="character pian">テ</div>
+                <div class="romaji">te</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">テ</div>
+                <div class="romaji">te</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="to">
+                <div class="character ping">と</div>
+                <div class="character pian">ト</div>
+                <div class="romaji">to</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ト</div>
+                <div class="romaji">to</div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- na行-->
+        <div class="row">
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="na">
+                <div class="character ping">な</div>
+                <div class="character pian">ナ</div>
+                <div class="romaji">na</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ナ</div>
+                <div class="romaji">na</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="ni">
+                <div class="character ping">に</div>
+                <div class="character pian">ニ</div>
+                <div class="romaji">ni</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ニ</div>
+                <div class="romaji">ni</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="nu">
+                <div class="character ping">ぬ</div>
+                <div class="character pian">ヌ</div>
+                <div class="romaji">nu</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ヌ</div>
+                <div class="romaji">nu</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="ne">
+                <div class="character ping">ね</div>
+                <div class="character pian">ネ</div>
+                <div class="romaji">ne</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ネ</div>
+                <div class="romaji">ne</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="no">
+                <div class="character ping">の</div>
+                <div class="character pian">ノ</div>
+                <div class="romaji">no</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ノ</div>
+                <div class="romaji">no</div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ha行-->
+        <div class="row">
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="ha">
+                <div class="character ping">は</div>
+                <div class="character pian">ハ</div>
+                <div class="romaji">ha</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ハ</div>
+                <div class="romaji">ha</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="hi">
+                <div class="character ping">ひ</div>
+                <div class="character pian">ヒ</div>
+                <div class="romaji">hi</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ヒ</div>
+                <div class="romaji">hi</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="fu">
+                <div class="character ping">ふ</div>
+                <div class="character pian">フ</div>
+                <div class="romaji">fu</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">フ</div>
+                <div class="romaji">fu</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="he">
+                <div class="character ping">へ</div>
+                <div class="character pian">ヘ</div>
+                <div class="romaji">he</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ヘ</div>
+                <div class="romaji">he</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="ho">
+                <div class="character ping">ほ</div>
+                <div class="character pian">ホ</div>
+                <div class="romaji">ho</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ホ</div>
+                <div class="romaji">ho</div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ma行-->
+        <div class="row">
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="ma">
+                <div class="character ping">ま</div>
+                <div class="character pian">マ</div>
+                <div class="romaji">ma</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">マ</div>
+                <div class="romaji">ma</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="mi">
+                <div class="character ping">み</div>
+                <div class="character pian">ミ</div>
+                <div class="romaji">mi</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ミ</div>
+                <div class="romaji">mi</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="mu">
+                <div class="character ping">む</div>
+                <div class="character pian">ム</div>
+                <div class="romaji">mu</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ム</div>
+                <div class="romaji">mu</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="me">
+                <div class="character ping">め</div>
+                <div class="character pian">メ</div>
+                <div class="romaji">me</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">メ</div>
+                <div class="romaji">me</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="mo">
+                <div class="character ping">も</div>
+                <div class="character pian">モ</div>
+                <div class="romaji">mo</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">モ</div>
+                <div class="romaji">mo</div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ya行-->
+        <div class="row">
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="ya">
+                <div class="character ping">や</div>
+                <div class="character pian">ヤ</div>
+                <div class="romaji">ya</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ヤ</div>
+                <div class="romaji">ya</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="none">
+                <div class="character"></div>
+                <div class="romaji"></div>
+              </div>
+              <div class="none2">
+                <div class="character"></div>
+                <div class="romaji"></div>
+              </div>
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="yu">
+                <div class="character ping">ゆ</div>
+                <div class="character pian">ユ</div>
+                <div class="romaji">yu</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ユ</div>
+                <div class="romaji">yu</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="none">
+                <div class="character"></div>
+                <div class="romaji"></div>
+              </div>
+              <div class="none2">
+                <div class="character"></div>
+                <div class="romaji"></div>
+              </div>
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="yo">
+                <div class="character ping">よ</div>
+                <div class="character pian">ヨ</div>
+                <div class="romaji">yo</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ヨ</div>
+                <div class="romaji">yo</div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ra行-->
+        <div class="row">
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="ra">
+                <div class="character ping">ら</div>
+                <div class="character pian">ラ</div>
+                <div class="romaji">ra</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ラ</div>
+                <div class="romaji">ra</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="ri">
+                <div class="character ping">り</div>
+                <div class="character pian">リ</div>
+                <div class="romaji">ri</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">リ</div>
+                <div class="romaji">ri</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="ru">
+                <div class="character ping">る</div>
+                <div class="character pian">ル</div>
+                <div class="romaji">ru</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ル</div>
+                <div class="romaji">ru</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="re">
+                <div class="character ping">れ</div>
+                <div class="character pian">レ</div>
+                <div class="romaji">re</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">レ</div>
+                <div class="romaji">re</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="ro">
+                <div class="character ping">ろ</div>
+                <div class="character pian">ロ</div>
+                <div class="romaji">ro</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ロ</div>
+                <div class="romaji">ro</div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- wa行-->
+        <div class="row">
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="wa">
+                <div class="character ping">わ</div>
+                <div class="character pian">ワ</div>
+                <div class="romaji">wa</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ワ</div>
+                <div class="romaji">wa</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="none">
+                <div class="character"></div>
+                <div class="romaji"></div>
+              </div>
+              <div class="none1">
+                <div class="character"></div>
+                <div class="romaji"></div>
+              </div>
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="none">
+                <div class="character"></div>
+                <div class="romaji"></div>
+              </div>
+              <div class="none">
+                <div class="character"></div>
+                <div class="romaji"></div>
+              </div>
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="none">
+                <div class="character"></div>
+                <div class="romaji"></div>
+              </div>
+              <div class="none">
+                <div class="character"></div>
+                <div class="romaji"></div>
+              </div>
+            </div>
+          </div>
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="w_o">
+                <div class="character ping">を</div>
+                <div class="character pian">ヲ</div>
+                <div class="romaji">o</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ヲ</div>
+                <div class="romaji">o</div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- n行-->
+        <div class="row">
+          <div class="pro-card-wrapper">
+            <div class="pro-card">
+              <div class="hiragana" id="n">
+                <div class="character ping">ん</div>
+                <div class="character pian">ン</div>
+                <div class="romaji">n</div>
+              </div>
+              <!-- <div class="katakana">
+                <div class="character">ン</div>
+                <div class="romaji">n</div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 五十音图结束 -->
+    </main>
+  </body>
+  <script src="script.js">
+    
+  </script>
+</html>
